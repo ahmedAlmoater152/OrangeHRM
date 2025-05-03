@@ -39,4 +39,12 @@ public class Bot {
         });
     }
 
+    public static Boolean boolIsVisible(WebDriver driver, By locator){
+        wait.until(f->{
+            driver.findElement(locator).isDisplayed();
+            return true;
+        });
+        return true;
+    }
+
 }

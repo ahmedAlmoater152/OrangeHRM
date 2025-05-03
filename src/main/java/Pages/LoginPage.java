@@ -17,6 +17,8 @@ public class LoginPage {
     private final By password             = By.xpath("//input[@name = 'password']");
     private final By loginButton          = By.xpath("//button[@type = 'submit']");
     private final By forgetYourPassword   = By.xpath("//p[contains(@class , 'orangehrm-login-forgot-header')]");
+    private final By dashboard            = By.xpath("//h6[text()='Dashboard']");
+
 
     //// Methods ////
 
@@ -55,10 +57,19 @@ public class LoginPage {
         Bot.enterText(driver,userName,userName1);
         Bot.enterText(driver,password,password1);
         Bot.clicking(driver,loginButton);
+        Bot.isVisible(driver,dashboard);
 
         Cookie orangehrmCookie = driver.manage().getCookieNamed("orangehrm");
 
         return orangehrmCookie.getValue();
+    }
+
+    public void homeDashboardIsVisible(){
+        Bot.isVisible(driver,dashboard);
+    }
+
+    public Boolean boolHomeDashboardIsVisible(){
+        return Bot.boolIsVisible(driver,dashboard);
     }
 
 
