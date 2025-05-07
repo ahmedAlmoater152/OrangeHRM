@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.DashboardPage;
 import Pages.LoginPage;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -15,6 +16,7 @@ public class LoginTest {
     private WebDriver driver;
     String baseUrl ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
     LoginPage loginPage;
+    DashboardPage dashboard;
 
     @Epic("Login")
     @Feature("Valid Login")

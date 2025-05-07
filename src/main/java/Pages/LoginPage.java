@@ -43,6 +43,7 @@ public class LoginPage {
         Bot.enterText(driver,userName,userName1);
         Bot.enterText(driver,password,password1);
         Bot.clicking(driver,loginButton);
+
     }
 
     public String compeleteLoginWithOrangehrmCookieReturned(String userName1,String password1){

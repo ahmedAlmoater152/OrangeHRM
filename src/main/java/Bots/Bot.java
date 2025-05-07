@@ -1,7 +1,9 @@
 package Bots;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
@@ -40,11 +42,13 @@ public class Bot {
     }
 
     public static Boolean boolIsVisible(WebDriver driver, By locator){
-        wait.until(f->{
-            driver.findElement(locator).isDisplayed();
-            return true;
-        });
-        return true;
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return true; // Element became visible within 10 seconds
+        } catch (TimeoutException e) {
+            return false; // Element not visible within 10 seconds
+        }
     }
 
 }
